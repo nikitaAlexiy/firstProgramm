@@ -1,5 +1,4 @@
 let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
-
 let personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -8,11 +7,29 @@ let personalMovieDB = {
     privat: false
 };
 
-let a = prompt('Какой ваш последний просмотренный фильм?', ''),
-    b = prompt('На сколько оцените его?', ''),
-    c = prompt('Какой ваш последний просмотренный фильм?', ''),
-    d = prompt('На сколько оцените его?', '');
+for (let i = 0; i < 2; ){
+    const a = prompt('Какой ваш последний просмотренный фильм?', ''),   
+          b = prompt('На сколько оцените его?', '');
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+    if(a != null && b != null && a != '' && b != '' && a.length <= 50) {
+        personalMovieDB.movies[a] = b;
+        i++; 
+    } else {
+        alert('Введите название фильма не длинее чем 50 символов'); continue;
+    }
+}
+
+
+if(personalMovieDB.count < 10 ){
+    alert('Вы просто любитель');
+}else if(personalMovieDB.count >= 10 && personalMovieDB.count < 30){
+    alert('Вы обычный зритель');
+}else if(personalMovieDB.count >= 30){
+    alert('Вы киноман');
+}else{
+    alert('Ошибочка');
+}
 console.log(personalMovieDB);
+
+
+
